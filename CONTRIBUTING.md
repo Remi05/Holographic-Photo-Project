@@ -6,7 +6,7 @@ Thanks a lot! Holographic Photo Project welcomes contributions from the communit
 
 ## Process
 
-You may want to start by reading the [developer manual](https://github.com/Microsoft/Holographic-Photo-Project/blob/master/DEVELOPPER.md) before you start contributing.
+You may want to start by reading the [developer manual](https://github.com/Microsoft/Holographic-Photo-Project/blob/master/DEVELOPER.md) before you start contributing.
 
 1. Create an issue.
 2. Implement the issue and its tests.
@@ -30,7 +30,7 @@ This will let us have a brief discussion about the problem and, hopefully, ident
 3. Instructions for building the project and running the tests are in the [README](https://github.com/Microsoft/Holographic-Photo-Project/blob/master/README.md).
 4. Make small and frequent commits that include tests, which could be a Unity scene showing usage of your feature.
 5. Make sure that all the tests continue to pass.
-6. Run StyleCop to make sure your code respects the [DEVELOPER](https://github.com/Microsoft/Holographic-Photo-Project/blob/master/DEVELOPPER.md).
+6. Run StyleCop to make sure your code respects the [DEVELOPER](https://github.com/Microsoft/Holographic-Photo-Project/blob/master/DEVELOPER.md).
 6. Ensure the code is [WACK compliant](https://developer.microsoft.com/en-us/windows/develop/app-certification-kit). To do this, generate a Visual Studio solution, right click on project; Store -> Create App Packages. Follow the prompts and run WACK tests. Make sure they all succeed.
 7. Ensure you update the [README](https://github.com/Microsoft/Holographic-Photo-Project/blob/master/README.md) with additional documentation as needed.
 
