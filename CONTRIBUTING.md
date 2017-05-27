@@ -6,10 +6,10 @@ Thanks a lot! Holographic Photo Project welcomes contributions from the communit
 
 ## Process
 
-You may want to start by reading the [developer manual](DEVELOPER.md) before you start contributing.
+You may want to start by reading the [developer manual](https://github.com/Microsoft/Holographic-Photo-Project/blob/master/DEVELOPPER.md) before you start contributing.
 
-1. [TODO : Make a proposal](https://github.com/[INSERT_PROJECT_MEMURO_REPO_HERE]/issues)
-2. Implement the proposal and its tests.
+1. Create an issue.
+2. Implement the issue and its tests.
 3. Merge dev back in your branch.
 4. Start a pull request & address comments.
 5. Merge.
@@ -19,7 +19,7 @@ You may want to start by reading the [developer manual](DEVELOPER.md) before you
 
 For simple tasks like fixing typos and small bug fixes, you can skip this step.
 
-If your change is more than a simple fix, please start by [TODO :opening an issue](https://github.com/[INSERT_PROJECT_MEMURO_REPO_HERE]/issues) describing the problem you want to solve and how you plan to approach the problem.
+If your change is more than a simple fix, please start by opening an issue describing the problem you want to solve and how you plan to approach the problem.
 This will let us have a brief discussion about the problem and, hopefully, identify some potential pitfalls before too much time is spent.
 
 
@@ -27,12 +27,12 @@ This will let us have a brief discussion about the problem and, hopefully, ident
 
 1. Fork the repository. Click on the "Fork" button on the top right of the page and follow the flow.
 2. If your work needs more time, then consider branching off of master. Otherwise, just code in your fork.
-3. Instructions for building the project and running the tests are in the [TODO README](https://github.com/[INSERT_PROJECT_MEMURO_REPO_HERE]/blob/master/README.md).
+3. Instructions for building the project and running the tests are in the [README](https://github.com/Microsoft/Holographic-Photo-Project/blob/master/README.md).
 4. Make small and frequent commits that include tests, which could be a Unity scene showing usage of your feature.
 5. Make sure that all the tests continue to pass.
-6. Run StyleCop to make sure your code respects the [coding conventions]([TODO : coding conventions])
+6. Run StyleCop to make sure your code respects the [DEVELOPER](https://github.com/Microsoft/Holographic-Photo-Project/blob/master/DEVELOPPER.md).
 6. Ensure the code is [WACK compliant](https://developer.microsoft.com/en-us/windows/develop/app-certification-kit). To do this, generate a Visual Studio solution, right click on project; Store -> Create App Packages. Follow the prompts and run WACK tests. Make sure they all succeed.
-7. Ensure you update the [README](https://github.com/[INSERT_PROJECT_MEMURO_REPO_HERE]/blob/master/README.md) with additional documentation as needed.
+7. Ensure you update the [README](https://github.com/Microsoft/Holographic-Photo-Project/blob/master/README.md) with additional documentation as needed.
 
 
 ## Commits
@@ -54,7 +54,7 @@ Don't forget to run `git diff --check` to catch those annoying whitespace change
 
 ## Pull request
 
-Start a GitHub pull request to merge your topic branch into the [main repository's master branch](https://github.com/[INSERT_PROJECT_MEMURO_REPO_HERE]/tree/master).
+Start a GitHub pull request to merge your topic branch into the [main repository's master branch](https://github.com/Microsoft/Holographic-Photo-Project/tree/master).
 (If you are a Microsoft employee and are not a member of the [Microsoft organization on GitHub](https://github.com/Microsoft) yet, please link your Microsoft and GitHub accounts on corpnet by visiting [Open Source at Microsoft](https://opensource.microsoft.com/) before you start your pull request. There are some procedures you will need to complete ahead of time.)
 If you haven't contributed to a Microsoft project before, you may be asked to sign a [contribution license agreement](https://cla.microsoft.com/).
 A comment in the PR will let you know if you do.
