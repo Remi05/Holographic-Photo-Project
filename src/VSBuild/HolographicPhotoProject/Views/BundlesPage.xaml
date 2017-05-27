@@ -1,0 +1,162 @@
+﻿<Page
+    x:Class="HolographicPhotoProject.BundlesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HolographicPhotoProject"
+    xmlns:utils="using:HolographicPhotoProject.Utils"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <utils:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Visibility="{Binding HasInternetConnection,
+                                       Converter={StaticResource ResourceKey=BooleanToVisibilityConverter},
+                                       ConverterParameter=Reverse}">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="You'll need the internet for this."
+                           TextWrapping="WrapWholeWords" Padding="10"
+                           TextAlignment="Center" FontSize="28"/>
+                <TextBlock Text="It doesn't look like you're connected to the internet. Please check your connection and try again."
+                           TextWrapping="WrapWholeWords" Padding="10"
+                           TextAlignment="Center" FontSize="18"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="0" Visibility="{Binding HasInternetConnection,
+                                                Converter={StaticResource ResourceKey=BooleanToVisibilityConverter}}">
+            <Grid Visibility="{Binding IsAuthenticated, 
+                                       Converter={StaticResource ResourceKey=BooleanToVisibilityConverter},
+                                       ConverterParameter=Reverse}">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Text="You don't have any albums to display."
+                               TextWrapping="WrapWholeWords" Padding="10"
+                               TextAlignment="Center" FontSize="28"/>
+                    <TextBlock Text="Use the Log In button at the bottom to sign into your OneDrive account to use your albums."
+                               TextWrapping="WrapWholeWords" Padding="10"
+                               TextAlignment="Center" FontSize="18"/>
+                </StackPanel>
+            </Grid>
+            <Grid Visibility="{Binding IsAuthenticated, 
+                                       Converter={StaticResource ResourceKey=BooleanToVisibilityConverter}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="{Binding HeadingText}" 
+                            Grid.Row="0"
+                            FontSize="24" 
+                            Margin="10"
+                            HorizontalAlignment="Center" />
+
+                <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+                            Visibility="{Binding ItemsExist, 
+                                                 Converter={StaticResource ResourceKey=BooleanToVisibilityConverter},
+                                                 ConverterParameter=Reverse}">
+                    <StackPanel Visibility="{Binding IsLoading, 
+                                Converter={StaticResource ResourceKey=BooleanToVisibilityConverter},
+                                ConverterParameter=Reverse}">
+                        <TextBlock Text="Relive your memories"
+                                   TextWrapping="WrapWholeWords" Padding="10"
+                                   TextAlignment="Center" FontSize="28"/>
+                        <TextBlock Text="Add albums to your OneDrive account to create souvenirs."
+                                   TextWrapping="WrapWholeWords" Padding="10"
+                                   TextAlignment="Center" FontSize="18"/>
+                    </StackPanel>
+                </StackPanel>
+                <GridView x:Name="souvenirsGridView"
+                            Grid.Row="1"
+                            Visibility="{Binding ItemsExist, 
+                                                Converter={StaticResource ResourceKey=BooleanToVisibilityConverter}}"
+                            IsItemClickEnabled="True"
+                            ItemClick="BundlesGridView_ItemClick"
+                            HorizontalAlignment="Center"
+                            ItemsSource="{Binding PageItems}"
+                            ScrollViewer.VerticalScrollMode="Disabled"
+                            ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+                    <GridView.ItemContainerStyle>
+                        <Style TargetType="GridViewItem">
+                            <Setter Property="Margin" Value="10,0,10,0"/>
+                            <Setter Property="Height" Value="170"/>
+                            <Setter Property="Width" Value="185"/>
+                        </Style>
+                    </GridView.ItemContainerStyle>
+
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Border BorderThickness="0.5"
+                                        Grid.Row="0"
+                                        Height="135" Width="175"
+                                        BorderBrush="Black"
+                                        VerticalAlignment="Top">
+                                    <Image 
+                                        Source="{Binding ThumbnailUrl}"
+                                        Stretch="UniformToFill"
+                                        Height="135" Width="175"/>
+                                </Border>
+
+                                <Grid Grid.Row="1" Height="35">
+                                    <TextBlock Text="{Binding Name}" Padding="10"
+                                            HorizontalAlignment="Center"
+                                            TextWrapping="WrapWholeWords" 
+                                            TextTrimming="CharacterEllipsis"/>
+                                </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+                <ProgressRing Grid.Row="1" IsActive="{Binding IsLoading}"
+                                Width="120" Height="120"
+                                VerticalAlignment="Center"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1"
+              BorderBrush="Gainsboro"
+              BorderThickness="0,2,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Margin="5,5,30,5" Command="{Binding PageBackCommand}"
+                    HorizontalAlignment="Right" Style="{ThemeResource PreviousButtonStyle}"/>
+            <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="5"
+                        VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock FontSize="20" Text="{Binding PageCursor}"/>
+                <TextBlock FontSize="20" Text="/"/>
+                <TextBlock FontSize="20" Text="{Binding NumberOfPages}"/>
+            </StackPanel>
+            <Button Grid.Column="2" Margin="30,5,5,5" Command="{Binding PageForwardCommand}"
+                    HorizontalAlignment="Left" Style="{ThemeResource NextButtonStyle}"/>
+        </Grid>
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="1"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom">
+            <Button Style="{ThemeResource SettingsButtonStyle}">
+                <Button.Flyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Text="Log Out" Command="{Binding LogOutCommand}"/>
+                    </MenuFlyout>
+                </Button.Flyout>
+            </Button>
+            <Button Style="{ThemeResource LoginButtonStyle}" Command="{Binding AuthenticateCommand}"
+                    Visibility="{Binding IsAuthenticated, ConverterParameter=Reverse, Converter={StaticResource ResourceKey=BooleanToVisibilityConverter}}"/>
+            <Button Style="{ThemeResource SyncButtonStyle}" Command="{Binding SyncCommand}"
+                    Visibility="{Binding IsAuthenticated, 
+                                         Converter={StaticResource ResourceKey=BooleanToVisibilityConverter}}"/>
+        </StackPanel>
+    </Grid>
+</Page>

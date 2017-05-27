@@ -1,0 +1,35 @@
+fileFormatVersion: 2
+guid: f7103e189845f6947a868c1b5f975186
+timeCreated: 1485994274
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Selawik
+  fontNames:
+  - Selawik
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 86574c70442309b45be5a1c37a37a40b, type: 3}
+  - {fileID: 12800000, guid: 0a13f7f0cab0f4746a3b039a50d181a9, type: 3}
+  - {fileID: 12800000, guid: 98d9db324dda3a44e93fbf3b7ce9eca9, type: 3}
+  - {fileID: 12800000, guid: 362228a21459f3f40b588518fe35cc00, type: 3}
+  - {fileID: 12800000, guid: 0aa3a2b3c0a9994469f56d7b02b3f60d, type: 3}
+  - {fileID: 12800000, guid: d22b1b05b61beaa4388c739c15fbb6a5, type: 3}
+  - {fileID: 12800000, guid: 7b4a87968beeaac409a273ece0238aeb, type: 3}
+  - {fileID: 12800000, guid: 5476b617c12575a4cbaf7b121a7eda8a, type: 3}
+  - {fileID: 12800000, guid: b8a8324793a77d14fad6ef1dc06c55ed, type: 3}
+  - {fileID: 12800000, guid: 15a366e72c6880149ac9062aeed006f3, type: 3}
+  - {fileID: 12800000, guid: b4479ce88f17eb942bcc61e5aec34a55, type: 3}
+  - {fileID: 12800000, guid: 2a056e2bb89e0134daaf49e5f183e5dc, type: 3}
+  - {fileID: 12800000, guid: e3d8348b7d66bae4aa4b1f3ada3ef5fd, type: 3}
+  - {fileID: 12800000, guid: 09f0223fda07c7145bcbf65405bf894f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

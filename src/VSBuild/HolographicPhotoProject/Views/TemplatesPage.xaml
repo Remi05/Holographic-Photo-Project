@@ -1,0 +1,111 @@
+﻿<Page
+    x:Class="HolographicPhotoProject.TemplatesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HolographicPhotoProject"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"
+              BorderBrush="Gainsboro"
+              BorderThickness="0,0,0,2"
+              Margin="5,0,5,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Choose a Hologram" 
+                       Grid.Row="0"
+                       FontSize="24" 
+                       Margin="10"
+                       HorizontalAlignment="Center"/>
+
+            <GridView x:Name="templatesGridView"
+                      Grid.Row="1"
+                      IsItemClickEnabled="True"
+                      ItemClick="TemplatesGridView_ItemClick"   
+                      HorizontalAlignment="Center"
+                      ItemsSource="{Binding Items}"
+                      ScrollViewer.VerticalScrollMode="Disabled"
+                      ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+                <GridView.ItemContainerStyle>
+                    <Style TargetType="GridViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                        <Setter Property="VerticalAlignment" Value="Stretch"/>
+                        <Setter Property="Margin" Value="10,0,10,0"/>
+                        <Setter Property="Height" Value="170"/>
+                        <Setter Property="Width" Value="185"/>
+                    </Style>
+                </GridView.ItemContainerStyle>
+
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Border BorderThickness="0.5"
+                                    Grid.Row="0"
+                                    Height="135" Width="175"
+                                    BorderBrush="Black">
+                                <Image 
+                                    Source="{Binding ThumbnailPath}"
+                                    Stretch="UniformToFill"
+                                    Height="135" Width="175"/>
+                            </Border>
+
+                            <Grid Grid.Row="1" Height="35">
+                                <TextBlock Text="{Binding Name}" Padding="10"
+                                           HorizontalAlignment="Center"
+                                           TextWrapping="WrapWholeWords" 
+                                           TextTrimming="CharacterEllipsis"/>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+        </Grid>
+        <Grid Grid.Row="1"
+              BorderBrush="Gainsboro"
+              BorderThickness="0,2,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Margin="5,5,30,5" Command="{Binding PageBackCommand}"
+                    HorizontalAlignment="Right" Style="{ThemeResource PreviousButtonStyle}"/>
+            <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="5"
+                        VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock FontSize="20" Text="{Binding PageCursor}"/>
+                <TextBlock FontSize="20" Text="/"/>
+                <TextBlock FontSize="20" Text="{Binding NumberOfPages}"/>
+            </StackPanel>
+            <Button Grid.Column="2" Margin="30,5,5,5" Command="{Binding PageForwardCommand}"
+                    HorizontalAlignment="Left" Style="{ThemeResource NextButtonStyle}"/>
+        </Grid>
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="1"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom">
+            <Button Style="{ThemeResource SettingsButtonStyle}">
+                <Button.Flyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Text="Log Out" Command="{Binding LogOutCommand}"/>
+                    </MenuFlyout>
+                </Button.Flyout>
+            </Button>
+            <Button Style="{ThemeResource SyncButtonStyle}" Command="{Binding SyncCommand}"/>
+        </StackPanel>
+    </Grid>
+</Page>
