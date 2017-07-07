@@ -50,7 +50,7 @@ namespace HolographicPhotoProject.Input.Gestures
         }
 
         /// <summary>
-        /// Handler for the OnInputUp event which forwards this event up as Pressed.
+        /// Handler for the OnInputUp event which forwards this event up as Released.
         /// </summary>
         public void OnInputUp(InputEventData eventData)
         {
